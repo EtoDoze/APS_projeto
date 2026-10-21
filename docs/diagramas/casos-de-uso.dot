@@ -1,0 +1,52 @@
+// OficinaFacil - Diagrama de casos de uso (Graphviz). Gerar PNG:
+//   dot -Tpng -Gdpi=130 casos-de-uso.dot -o casos-de-uso.png
+digraph UC {
+  rankdir=LR; splines=spline; nodesep=0.45; ranksep=0.9; compound=true;
+  fontname="DejaVu Sans"; labelloc=t; fontsize=18;
+  label="OficinaFácil — Diagrama de Casos de Uso";
+  node [fontname="DejaVu Sans", fontsize=11];
+  edge [fontname="DejaVu Sans", fontsize=10, dir=none];
+
+  // Atores
+  node [shape=none, image="actor.png", labelloc=b, width=0.7, height=1.1, imagescale=false];
+  ATE [label="Atendente"]; MEC [label="Mecânico"]; ALM [label="Almoxarife"]; GER [label="Gerente"];
+
+  subgraph cluster_sys {
+    label="Sistema OficinaFácil"; style=rounded; fontsize=14; color="#444444"; margin=18;
+    node [shape=ellipse, image="", labelloc=c, width=2.3, height=0.6, imagescale=false];
+    UC01 [label="UC01 Autenticar usuário"];
+    UC02 [label="UC02 Gerenciar usuários"];
+    UC03 [label="UC03 Gerenciar clientes"];
+    UC04 [label="UC04 Gerenciar veículos"];
+    UC05 [label="UC05 Gerenciar serviços"];
+    UC06 [label="UC06 Gerenciar peças"];
+    UC07 [label="UC07 Abrir ordem de serviço"];
+    UC08 [label="UC08 Registrar diagnóstico"];
+    UC09 [label="UC09 Elaborar orçamento"];
+    UC10 [label="UC10 Autorizar desconto"];
+    UC11 [label="UC11 Registrar decisão\ndo cliente"];
+    UC12 [label="UC12 Executar serviço"];
+    UC13 [label="UC13 Registrar consumo\nde peças"];
+    UC14 [label="UC14 Concluir ordem\nde serviço"];
+    UC15 [label="UC15 Entregar veículo e\nregistrar pagamento"];
+    UC16 [label="UC16 Cancelar ordem\nde serviço"];
+    UC17 [label="UC17 Consultar ordens\nde serviço"];
+    UC18 [label="UC18 Registrar entrada\nde estoque"];
+    UC19 [label="UC19 Emitir relatório\nde faturamento"];
+  }
+
+  
+  // Associações
+  edge [dir=none, arrowhead=none];
+  ATE -> UC01; MEC -> UC01; ALM -> UC01; UC01 -> GER;
+  UC02 -> GER; ATE -> UC03; ATE -> UC04; UC05 -> GER; ALM -> UC06;
+  ATE -> UC07; MEC -> UC08; ATE -> UC09; UC10 -> GER; ATE -> UC11;
+  MEC -> UC12; MEC -> UC14; ATE -> UC15; ATE -> UC16; UC16 -> GER;
+  ATE -> UC17; MEC -> UC17; UC17 -> GER; ALM -> UC18; UC19 -> GER;
+
+  // Include / Extend (seta tracejada)
+  edge [dir=forward, arrowhead=vee, style=dashed];
+  UC12 -> UC13 [label="«include»"];
+  UC10 -> UC09 [label="«extend»"];
+  UC16 -> UC17 [label="«extend»"];
+}
