@@ -12,10 +12,10 @@ Almoxarife e Gerente.
 
 | Nome | GitHub |
 |------|--------|
-| _Integrante 1_ | @usuario1 |
-| _Integrante 2_ | @usuario2 |
-| _Integrante 3_ | @usuario3 |
-| _Integrante 4_ | @usuario4 |
+| _Roberto_ | @EtoDoze |
+| _Elto_ | @usuario2 |
+| _Pedro Lucas_ | @usuario3 |
+| _Évillyn_ | @usuario4 |
 
 ## Tecnologias
 
