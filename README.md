@@ -56,5 +56,4 @@ Cada commit de entrega referencia o elemento do diagrama que implementa (ex.: `U
 
 ## Product Backlog
 
-As histórias de usuário estão em [`docs/historias-de-usuario.md`](docs/historias-de-usuario.md) e nas *Issues* do repositório,
-ordenadas por prioridade (labels `P1`, `P2`, `P3`).
+As histórias de usuário estão em [`docs/historias-de-usuario.md`](docs/historias-de-usuario.md) 
